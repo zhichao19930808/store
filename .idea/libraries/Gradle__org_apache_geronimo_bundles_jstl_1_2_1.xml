@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.apache.geronimo.bundles:jstl:1.2_1">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.geronimo.bundles/jstl/1.2_1/ab7d23693522da0dc5be869ef15319f8ec69a2b4/jstl-1.2_1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.geronimo.bundles/jstl/1.2_1/86e5fd19921f2278eb2a6199092006c8f76c7ae3/jstl-1.2_1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
