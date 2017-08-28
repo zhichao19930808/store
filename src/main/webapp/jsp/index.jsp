@@ -124,10 +124,10 @@
 					</div>
 				<c:forEach items="${requestScope.newProduct}" var="n">
                     <div class="col-md-2" style="text-align:center;height:200px;padding:10px 0px;">
-                        <a href="${pageContext.request.contextPath}/jsp/product?ac=findProductById&&id="+${n.id}>
+                        <a href="${pageContext.request.contextPath}/jsp/product?ac=findProductById&&id=${n.id}">
                             <img src="${pageContext.request.contextPath}/${n.pimage}" width="130" height="130" style="display: inline-block;">
                         </a>
-                        <p><a href="${pageContext.request.contextPath}/jsp/product?ac=findProductById&&id="+${n.id} style='color:#666'>${n.name}</a></p>
+                        <p><a href="${pageContext.request.contextPath}/jsp/product?ac=findProductById&&id=${n.id}" style='color:#666'>${n.name}</a></p>
                         <p><font color="#E4393C" style="font-size:16px">&yen;${n.market_price}</font></p>
                     </div>
                 </c:forEach>

@@ -63,3 +63,4 @@ FROM db_store.product;
 SELECT * FROM db_store.product ORDER BY pdate DESC LIMIT 9;
 SELECT * FROM db_store.product WHERE is_hot = 1 ORDER BY pdate DESC LIMIT 9;
 SELECT * FROM db_store.product WHERE id=1;
+SELECT * FROM db_store.product WHERE cId =2 ORDER BY pdate DESC LIMIT 0,9;

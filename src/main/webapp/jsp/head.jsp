@@ -19,7 +19,7 @@
                 var $ul =$("#kind");
                 //遍历数组
                 $(date).each(function () {
-                    $ul.append($("<li><a href='#'>"+this.name+"</a></li>"));
+                    $ul.append($("<li><a href='${pageContext.request.contextPath}/jsp/Kind?ac=getPage&id="+this.id+"&currPage=1'>"+this.name+"</a></li>"));
                 })
             },"json")
         })
