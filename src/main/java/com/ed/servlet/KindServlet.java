@@ -13,11 +13,9 @@ import java.util.List;
 @WebServlet(urlPatterns = "/jsp/Kind")
 public class KindServlet extends BaseServlet{
     public String getKind(HttpServletRequest request, HttpServletResponse response) {
-        System.out.println("查询分类信息");
         List<Kind> kindList = KindService.getKind();
         //将list转换为json格式的字符串
         String jsonString = JSON.toJSONString(kindList, true);
-        System.out.println(jsonString);
         //将jsonString写回到客户端
         response.setContentType("text/html;charset = utf-8");
         try {
