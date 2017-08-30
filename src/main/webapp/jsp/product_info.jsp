@@ -42,6 +42,8 @@
 					</div>
 
 					<div class="col-md-6">
+                        <form action="${pageContext.request.contextPath}/jsp/cart?ac=addCart" id="from1" method="post">
+                            <input type="hidden" name="id" value="${requestScope.product.id}">
 						<div><strong>${requestScope.product.name}</strong></div>
 						<div style="border-bottom: 1px dotted #dddddd;width:350px;margin:10px 0 10px 0;">
 							<div>编号：${requestScope.product.id}</div>
@@ -56,13 +58,14 @@
 							<div style="margin:5px 0 10px 0;">白色</div>
 
 							<div style="border-bottom: 1px solid #faeac7;margin-top:20px;padding-left: 10px;">购买数量:
-								<input id="quantity" name="quantity" value="1" maxlength="4" size="10" type="text"> </div>
+								<input id="quantity" name="count" value="1" maxlength="4" size="10" type="text"> </div>
 
 							<div style="margin:20px 0 10px 0;;text-align: center;">
-								<a href="cart.htm">
+								<a href="javascript:void(0)" onclick="addCart()">
 									<input style="background: url('${pageContext.request.contextPath}/images/product.gif') no-repeat scroll 0 -600px rgba(0, 0, 0, 0);height:36px;width:127px;" value="加入购物车" type="button">
 								</a> &nbsp;收藏商品</div>
 						</div>
+                        </form>
 					</div>
 				</div>
 				<div class="clear"></div>
@@ -152,5 +155,10 @@
 		</div>
 
 	</body>
-
+    <script>
+        function addCart() {
+            //提交表单
+            document.getElementById("from1").submit();
+        }
+    </script>
 </html>

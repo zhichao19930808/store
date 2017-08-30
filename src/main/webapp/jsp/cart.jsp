@@ -38,114 +38,60 @@
 	</head>
 
 	<body>
-
-		
-			<!--
-            	时间：2015-12-30
-            	描述：菜单栏
-            -->
-			<div class="container-fluid">
-				<div class="col-md-4">
-					<img src="${pageContext.request.contextPath}/img/logo2.png" />
-				</div>
-				<div class="col-md-5">
-					<img src="${pageContext.request.contextPath}/img/header.png" />
-				</div>
-				<div class="col-md-3" style="padding-top:20px">
-					<ol class="list-inline">
-						<li><a href="login.htm">登录</a></li>
-						<li><a href="register.htm">注册</a></li>
-						<li><a href="cart.htm">购物车</a></li>
-					</ol>
-				</div>
-			</div>
-			<!--
-            	时间：2015-12-30
-            	描述：导航条
-            -->
-			<div class="container-fluid">
-				<nav class="navbar navbar-inverse">
-					<div class="container-fluid">
-						<!-- Brand and toggle get grouped for better mobile display -->
-						<div class="navbar-header">
-							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-								<span class="sr-only">Toggle navigation</span>
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
-							</button>
-							<a class="navbar-brand" href="#">首页</a>
-						</div>
-
-						<!-- Collect the nav links, forms, and other content for toggling -->
-						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-							<ul class="nav navbar-nav">
-								<li class="active"><a href="#">手机数码<span class="sr-only">(current)</span></a></li>
-								<li><a href="#">电脑办公</a></li>
-								<li><a href="#">电脑办公</a></li>
-								<li><a href="#">电脑办公</a></li>
-							</ul>
-							<form class="navbar-form navbar-right" role="search">
-								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Search">
-								</div>
-								<button type="submit" class="btn btn-default">Submit</button>
-							</form>
-
-						</div>
-						<!-- /.navbar-collapse -->
-					</div>
-					<!-- /.container-fluid -->
-				</nav>
-			</div>
-
-
+		<%@include file="head.jsp"%>
 		<div class="container">
 			<div class="row">
 
 				<div style="margin:0 auto; margin-top:10px;width:950px;">
 					<strong style="font-size:16px;margin:5px 0;">订单详情</strong>
-					<table class="table table-bordered">
-						<tbody>
-							<tr class="warning">
-								<th>图片</th>
-								<th>商品</th>
-								<th>价格</th>
-								<th>数量</th>
-								<th>小计</th>
-								<th>操作</th>
-							</tr>
+                    <c:if test="${empty sessionScope.cart.map}">
+                        <h1>购物车空空如也，快去商城逛逛吧</h1>
+                    </c:if>
+                    <c:if test="${not empty sessionScope.cart.map}">
+                    <table class="table table-bordered">
+                        <tbody>
+                        <c:forEach items="${sessionScope.cart.items}" var="cartItem">
+                        <tr class="warning">
+                            <th>图片</th>
+                            <th>价格</th>
+                            <th>数量</th>
+                            <th>小计</th>
+                            <th>操作</th>
+                        </tr>
+                        <th>商品</th>
 							<tr class="active">
 								<td width="60" width="40%">
 									<input type="hidden" name="id" value="22">
-									<img src="${pageContext.request.contextPath}/image/dadonggua.jpg" width="70" height="60">
+									<img src="${pageContext.request.contextPath}/${cartItem.product.pimage}" width="70" height="60">
 								</td>
 								<td width="30%">
-									<a target="_blank"> 有机蔬菜      大冬瓜...</a>
+									<a target="_blank">${cartItem.product.name}</a>
 								</td>
 								<td width="20%">
-									￥298.00
+									￥${cartItem.product.market_price}
 								</td>
 								<td width="10%">
-									<input type="text" name="quantity" value="1" maxlength="4" size="10">
+									<span class="subtotal">${cartItem.count}</span>
 								</td>
 								<td width="15%">
-									<span class="subtotal">￥596.00</span>
+									<span class="subtotal">￥${cartItem.subTotal}</span>
 								</td>
 								<td>
-									<a href="javascript:;" class="delete">删除</a>
+									<a href="javascript:;" class="delete" onclick="removeById(${cartItem.product.id})">删除</a>
 								</td>
 							</tr>
+                        </c:forEach>
 						</tbody>
-					</table>
-				</div>
+                    </table>
+                    </c:if>
+                </div>
 			</div>
 
 			<div style="margin-right:130px;">
 				<div style="text-align:right;">
 					<em style="color:#ff6600;">
 				登录后确认是否享有优惠&nbsp;&nbsp;
-			</em> 赠送积分: <em style="color:#ff6600;">596</em>&nbsp; 商品金额: <strong style="color:#ff6600;">￥596.00元</strong>
+			</em> 赠送积分: <em style="color:#ff6600;">596</em>&nbsp; 商品金额: <strong style="color:#ff6600;">￥${sessionScope.cart.total}元</strong>
 				</div>
 				<div style="text-align:right;margin-top:10px;margin-bottom:10px;">
 					<a href="order_info.htm" id="clear" class="clear">清空购物车</a>
@@ -180,5 +126,11 @@
 		</div>
 
 	</body>
-
+    <script>
+        function removeById(id) {
+            if (confirm("真的要丢弃我吗？")){
+                location.href="${pageContext.request.contextPath}/jsp/cart?ac=removeCart&&id="+id
+            }
+        }
+    </script>
 </html>
