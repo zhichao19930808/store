@@ -70,23 +70,14 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">首页</a>
+                <a class="navbar-brand" href="${pageContext.request.contextPath}/jsp/index?ac=index">首页</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul id="kind" class="nav navbar-nav">
-                    <%--<c:forEach items="${requestScope.kind}" var="king">--%>
-                    <%--<li><a href="#">${king.name}</a></li>--%>
-                    <%--</c:forEach>--%>
+                    <%--ajax--%>
                 </ul>
-                <form class="navbar-form navbar-right" role="search">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search">
-                    </div>
-                    <button type="submit" class="btn btn-default">Submit</button>
-                </form>
-
             </div>
             <!-- /.navbar-collapse -->
         </div>

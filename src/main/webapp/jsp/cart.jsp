@@ -50,14 +50,15 @@
                     <c:if test="${not empty sessionScope.cart.map}">
                     <table class="table table-bordered">
                         <tbody>
-                        <c:forEach items="${sessionScope.cart.items}" var="cartItem">
                         <tr class="warning">
                             <th>图片</th>
+                            <th>名称</th>
                             <th>价格</th>
                             <th>数量</th>
                             <th>小计</th>
                             <th>操作</th>
                         </tr>
+						<c:forEach items="${sessionScope.cart.items}" var="cartItem">
                         <th>商品</th>
 							<tr class="active">
 								<td width="60" width="40%">
@@ -77,7 +78,7 @@
 									<span class="subtotal">￥${cartItem.subTotal}</span>
 								</td>
 								<td>
-									<a href="javascript:;" class="delete" onclick="removeById(${cartItem.product.id})">删除</a>
+									<a href="javascript:void(0)" class="delete" onclick="removeById(${cartItem.product.id})">删除</a>
 								</td>
 							</tr>
                         </c:forEach>
@@ -94,7 +95,7 @@
 			</em> 赠送积分: <em style="color:#ff6600;">596</em>&nbsp; 商品金额: <strong style="color:#ff6600;">￥${sessionScope.cart.total}元</strong>
 				</div>
 				<div style="text-align:right;margin-top:10px;margin-bottom:10px;">
-					<a href="order_info.htm" id="clear" class="clear">清空购物车</a>
+					<a href="javascript:void(0)" id="clear" class="clear" onclick="removeAll()">清空购物车</a>
 					<a href="order_info.htm">
 						<input type="submit" width="100" value="提交订单" name="submit" border="0" style="background: url('${pageContext.request.contextPath}/images/register.gif') no-repeat scroll 0 0 rgba(0, 0, 0, 0);
 						height:35px;width:100px;color:white;">
@@ -130,6 +131,11 @@
         function removeById(id) {
             if (confirm("真的要丢弃我吗？")){
                 location.href="${pageContext.request.contextPath}/jsp/cart?ac=removeCart&&id="+id
+            }
+        }
+        function removeAll() {
+            if (confirm("是否全部删除？？")){
+                location.href="${pageContext.request.contextPath}/jsp/cart?ac=removeAll"
             }
         }
     </script>

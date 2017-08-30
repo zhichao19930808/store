@@ -21,7 +21,6 @@ public class KindService {
         int totalCount = ProductDao.getCountByKind(kid);
         int totalPage = (int) Math.ceil(totalCount * 1.0 / pageSize);
         Page page = new Page(currPage,pageSize,totalPage,totalCount,productList);
-        System.out.println(page.getCurrPage());
         return page;
     }
 }

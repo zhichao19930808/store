@@ -47,8 +47,21 @@ public class CartServlet extends BaseServlet {
     public String removeCart(HttpServletRequest request, HttpServletResponse response) {
         //获取商品的id
         String id = request.getParameter("id");
-        //调用购物车中的remove方法
+        //调用购物车中的deleteById方法
         getCart(request).deleteById(id);
+        //重定向
+        try {
+            response.sendRedirect("/jsp/cart.jsp");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    //删除购物车中所有的商品
+    public String removeAll(HttpServletRequest request, HttpServletResponse response) {
+        //调用购物车中的deleteAll方法
+        getCart(request).deleteAll();
         //重定向
         try {
             response.sendRedirect("/jsp/cart.jsp");
