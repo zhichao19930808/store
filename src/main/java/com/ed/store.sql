@@ -64,3 +64,41 @@ SELECT * FROM db_store.product ORDER BY pdate DESC LIMIT 9;
 SELECT * FROM db_store.product WHERE is_hot = 1 ORDER BY pdate DESC LIMIT 9;
 SELECT * FROM db_store.product WHERE id=1;
 SELECT * FROM db_store.product WHERE cId =2 ORDER BY pdate DESC LIMIT 0,9;
+
+-- ------------------------------------------------------------------------------------------------------------------------------------
+DROP TABLE IF EXISTS db_store.orders;
+CREATE TABLE db_store.orders (
+  id        INT AUTO_INCREMENT PRIMARY KEY
+  COMMENT 'pk id',
+  ordertime DATETIME     NOT NULL
+  COMMENT '下单时间',
+  total     DOUBLE       NOT NULL
+  COMMENT '总金额',
+  state     INT DEFAULT 0
+  COMMENT '订单状态0/1',
+  address   VARCHAR(255) NOT NULL
+  COMMENT '收货人地址',
+  name      VARCHAR(255) NOT NULL
+  COMMENT '收货人姓名',
+  phone     VARCHAR(255) NOT NULL
+  COMMENT '收货人电话',
+  uId       INT          NOT NULL
+  COMMENT '外键 user表'
+);
+INSERT INTO db_store.orders (ordertime, total, address, name, phone, uId) VALUES ();
+
+-- -----------------------------------------------------------------------------
+DROP TABLE IF EXISTS db_store.orderItem;
+CREATE TABLE db_store.orderItem (
+  id       INT AUTO_INCREMENT PRIMARY KEY
+  COMMENT 'pk id',
+  count    INT    NOT NULL
+  COMMENT '商品数量',
+  subtotal DOUBLE NOT NULL
+  COMMENT '小计',
+  pId      INT    NOT NULL
+  COMMENT '商品Id',
+  oId      INT    NOT NULL
+  COMMENT '订单Id'
+);
+INSERT INTO db_store.orderItem (count, subtotal, pId, oId) VALUES ();
