@@ -10,8 +10,8 @@ import java.sql.SQLException;
 public class OrderDao {
     public static void addOrder(Order order) throws SQLException {
         QueryRunner queryRunner = new QueryRunner(C3p0Util.getDataSource());
-        String sql = "INSERT INTO db_store.orders(ordertime, total, address, name, phone, uId) VALUES (?,?,?,?,?,?)";
-        queryRunner.update(sql, order.getOrderTime(), order.getTotal(), order.getAddress(), order.getName(), order.getPhone(), order.getuId());
+        String sql = "INSERT INTO db_store.orders(id,ordertime, total, address, name, phone, uId) VALUES (?,?,?,?,?,?,?)";
+        queryRunner.update(sql,order.getId(), order.getOrderTime(), order.getTotal(), order.getAddress(), order.getName(), order.getPhone(), order.getUser().getId());
     }
 
     public static void addOrderItem(OrderItem orderItem) throws SQLException {

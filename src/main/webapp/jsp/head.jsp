@@ -48,7 +48,7 @@
             <ol class="list-inline">
                     ${sessionScope.user.name }:你好
                 <li><a href="${pageContext.request.contextPath }/jsp/user?ac=logout">退出</a></li>
-                <li><a href="${pageContext.request.contextPath }/user?method=registUI">我的订单</a></li>
+                <li><a href="${pageContext.request.contextPath }/jsp/cart.jsp">我的订单</a></li>
                 <li><a href="cart.htm">购物车</a></li>
             </ol>
         </c:if>

@@ -5,16 +5,16 @@ import java.util.Date;
 import java.util.List;
 
 public class Order {
-    private int id;
+    private String id;
     private Date orderTime;//下单时间
     private double total;//总金额
     private int state;//订单状态 0/1
     private String address;//收货人地址
     private String name;//收货人姓名
     private String phone;//收货人电话
-    private int uId;//用户Id
+    private User user;//用户
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -42,16 +42,15 @@ public class Order {
         this.phone = phone;
     }
 
-    public void setuId(int uId) {
-        this.uId = uId;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public void setOrderItemList(List<OrderItem> orderItemList) {
         this.orderItemList = orderItemList;
     }
 
-    public int getId() {
-
+    public String getId() {
         return id;
     }
 
@@ -79,8 +78,8 @@ public class Order {
         return phone;
     }
 
-    public int getuId() {
-        return uId;
+    public User getUser() {
+        return user;
     }
 
     public List<OrderItem> getOrderItemList() {

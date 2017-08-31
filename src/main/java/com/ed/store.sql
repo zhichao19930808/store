@@ -68,7 +68,7 @@ SELECT * FROM db_store.product WHERE cId =2 ORDER BY pdate DESC LIMIT 0,9;
 -- ------------------------------------------------------------------------------------------------------------------------------------
 DROP TABLE IF EXISTS db_store.orders;
 CREATE TABLE db_store.orders (
-  id        INT AUTO_INCREMENT PRIMARY KEY
+  id        VARCHAR(255) PRIMARY KEY
   COMMENT 'pk id',
   ordertime DATETIME     NOT NULL
   COMMENT '下单时间',
@@ -76,16 +76,16 @@ CREATE TABLE db_store.orders (
   COMMENT '总金额',
   state     INT DEFAULT 0
   COMMENT '订单状态0/1',
-  address   VARCHAR(255) NOT NULL
+  address   VARCHAR(255)
   COMMENT '收货人地址',
-  name      VARCHAR(255) NOT NULL
+  name      VARCHAR(255)
   COMMENT '收货人姓名',
-  phone     VARCHAR(255) NOT NULL
+  phone     VARCHAR(255)
   COMMENT '收货人电话',
   uId       INT          NOT NULL
   COMMENT '外键 user表'
 );
-INSERT INTO db_store.orders (ordertime, total, address, name, phone, uId) VALUES ();
+INSERT INTO db_store.orders (id,ordertime, total, address, name, phone, uId) VALUES ();
 
 -- -----------------------------------------------------------------------------
 DROP TABLE IF EXISTS db_store.orderItem;
@@ -98,7 +98,7 @@ CREATE TABLE db_store.orderItem (
   COMMENT '小计',
   pId      INT    NOT NULL
   COMMENT '商品Id',
-  oId      INT    NOT NULL
+  oId      VARCHAR(255)    NOT NULL
   COMMENT '订单Id'
 );
 INSERT INTO db_store.orderItem (count, subtotal, pId, oId) VALUES ();

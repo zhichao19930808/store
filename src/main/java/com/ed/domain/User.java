@@ -6,7 +6,7 @@ package com.ed.domain;
  *
  */
 public class User {
-	private String uid;
+	private String id;
 	private String userName;
 	private String password;
 
@@ -18,11 +18,12 @@ public class User {
 	private String  sex;
 	private Integer state;//激活状态  1:激活    0:未激活
 	private String  code;//激活码
-	public String getUid() {
-		return uid;
+
+	public String getId() {
+		return id;
 	}
-	public void setUid(String uid) {
-		this.uid = uid;
+	public void setId(String id) {
+		this.id = id;
 	}
 	public String getUserName() {
 		return userName;
@@ -78,8 +79,5 @@ public class User {
 	public void setCode(String code) {
 		this.code = code;
 	}
-
-
-
 
 }

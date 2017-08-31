@@ -2,11 +2,13 @@ package com.ed.servlet;
 
 import com.ed.domain.*;
 import com.ed.service.OrderService;
+import com.ed.utils.UUIDUtils;
 
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Date;
-
+@WebServlet(urlPatterns = "/jsp/order")
 public class OrderServlet extends BaseServlet {
     public String add(HttpServletRequest request, HttpServletResponse response) {
         User user = (User) request.getSession().getAttribute("user");
@@ -17,6 +19,8 @@ public class OrderServlet extends BaseServlet {
         }
         //封装数据，将数据添加到数据库
         Order order = new Order();
+        //设置订单Id
+        order.setId(UUIDUtils.getId());
         //获取下单时间
         order.setOrderTime(new Date());
         //取出购物车
@@ -24,7 +28,7 @@ public class OrderServlet extends BaseServlet {
         //获取总金额
         order.setTotal(cart.getTotal());
         //获取用户id
-        order.setuId(Integer.parseInt(user.getUid()));
+        order.setUser(user);
         //获取订单项数据
         for (CartItem cartItem : cart.getItems()) {
             OrderItem orderItem = new OrderItem();
