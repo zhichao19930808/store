@@ -31,4 +31,14 @@ public class KindDao {
         }
         return null;
     }
+
+    public static void addKind(Kind kind) {
+        String sql = "INSERT INTO db_store.kind (name) VALUES (?)";
+        QueryRunner queryRunner = new QueryRunner(C3p0Util.getDataSource());
+        try {
+            queryRunner.update(sql, kind.getName());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

@@ -132,3 +132,4 @@ ALTER TABLE db_store.orderItem
 FOREIGN KEY (oId)
 REFERENCES db_store.orders (id);
 
+INSERT INTO db_store.kind (name) VALUES ();

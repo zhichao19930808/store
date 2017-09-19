@@ -26,7 +26,7 @@
 		d.add('01',-1,'系统菜单树');
 		d.add('0101','01','用户管理','','','mainFrame');
 		d.add('010101','0101','展示所有','${pageContext.request.contextPath}/admin/adminKind?ac=findAll','','mainFrame');
-		d.add('010102','0101','添加分类','${pageContext.request.contextPath}/adminKindServlet?ac=addUI','','mainFrame');
+		d.add('010102','0101','添加分类','${pageContext.request.contextPath}/admin/adminKind?ac=addUI','','mainFrame');
 		d.add('0102','01','分类管理','','','mainFrame');
 		d.add('010201','0102','分类管理','${pageContext.request.contextPath}/adminCategoryServlet?method=findAll','','mainFrame');
 		d.add('0104','01','商品管理');

@@ -2,10 +2,12 @@ package com.ed.servlet;
 
 import com.ed.dao.KindDao;
 import com.ed.domain.Kind;
+import org.apache.commons.beanutils.BeanUtils;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 @WebServlet(urlPatterns = "/admin/adminKind")
 public class AdminKindServlet extends BaseServlet {
@@ -16,6 +18,17 @@ public class AdminKindServlet extends BaseServlet {
     }
 
     public String addUI(HttpServletRequest request, HttpServletResponse response) {
-        return "/admin/home.jsp";
+        return "/admin/category/add.jsp";
+    }
+
+    public String addKind(HttpServletRequest request, HttpServletResponse response) {
+        Kind kind = new Kind();
+        try {
+            BeanUtils.populate(kind,request.getParameterMap());
+        } catch (IllegalAccessException | InvocationTargetException e) {
+            e.printStackTrace();
+        }
+        KindDao.addKind(kind);
+        return "adminKind?ac=findAll";
     }
 }
