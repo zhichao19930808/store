@@ -61,7 +61,7 @@
 												${c.name}
 											</td>
 											<td align="center" style="HEIGHT: 22px">
-												<a href="${ pageContext.request.contextPath }/adminCategory">
+												<a href="${ pageContext.request.contextPath }/admin/adminKind?ac=getKindById&id=${c.id}">
 													<img src="${pageContext.request.contextPath}/images/i_edit.gif" border="0" style="CURSOR: hand">
 												</a>
 											</td>

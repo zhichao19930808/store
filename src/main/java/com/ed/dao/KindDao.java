@@ -41,4 +41,13 @@ public class KindDao {
             e.printStackTrace();
         }
     }
+    public static void updateKind(Kind kind) {
+        String sql = "UPDATE db_store.kind set name=? WHERE id=?";
+        QueryRunner queryRunner = new QueryRunner(C3p0Util.getDataSource());
+        try {
+            queryRunner.update(sql, kind.getName(),kind.getId());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

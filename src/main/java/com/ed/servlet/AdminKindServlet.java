@@ -31,4 +31,22 @@ public class AdminKindServlet extends BaseServlet {
         KindDao.addKind(kind);
         return "adminKind?ac=findAll";
     }
+
+    public String getKindById(HttpServletRequest request, HttpServletResponse response) {
+        int id = Integer.parseInt(request.getParameter("id"));
+        Kind kind =KindDao.findKindById(id);
+        request.setAttribute("kind",kind);
+        return "/admin/category/edit.jsp";
+    }
+
+    public String updateKind(HttpServletRequest request, HttpServletResponse response) {
+        Kind kind = new Kind();
+        try {
+            BeanUtils.populate(kind,request.getParameterMap());
+        } catch (IllegalAccessException | InvocationTargetException e) {
+            e.printStackTrace();
+        }
+        KindDao.updateKind(kind);
+        return "adminKind?ac=findAll";
+    }
 }

@@ -133,3 +133,4 @@ FOREIGN KEY (oId)
 REFERENCES db_store.orders (id);
 
 INSERT INTO db_store.kind (name) VALUES ();
+UPDATE db_store.kind set name=? WHERE id=?
