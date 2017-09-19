@@ -10,6 +10,9 @@
 			function addCategory(){
 				window.location.href = "${pageContext.request.contextPath}/";
 			}
+			function del() {
+                return confirm('是否删除这条项目？')
+            }
 		</script>
 	</HEAD>
 	<body>
@@ -67,7 +70,7 @@
 											</td>
 									
 											<td align="center" style="HEIGHT: 22px">
-												<a href="${ pageContext.request.contextPath }/adminCategory">
+												<a href="${ pageContext.request.contextPath }/admin/adminKind?ac=deleteKindById&id=${c.id}" onclick="return del()">
 													<img src="${pageContext.request.contextPath}/images/i_del.gif" width="16" height="16" border="0" style="CURSOR: hand">
 												</a>
 											</td>

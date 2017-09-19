@@ -49,4 +49,9 @@ public class AdminKindServlet extends BaseServlet {
         KindDao.updateKind(kind);
         return "adminKind?ac=findAll";
     }
+    public String deleteKindById(HttpServletRequest request, HttpServletResponse response) {
+        int id = Integer.parseInt(request.getParameter("id"));
+        KindDao.deleteKindById(id);
+        return "adminKind?ac=findAll";
+    }
 }

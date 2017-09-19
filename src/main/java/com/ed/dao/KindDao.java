@@ -50,4 +50,14 @@ public class KindDao {
             e.printStackTrace();
         }
     }
+
+    public static void deleteKindById(int id) {
+        String sql = "DELETE FROM db_store.kind WHERE id=?";
+        QueryRunner queryRunner = new QueryRunner(C3p0Util.getDataSource());
+        try {
+            queryRunner.update(sql, id);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }
