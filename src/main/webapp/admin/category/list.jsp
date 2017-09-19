@@ -31,8 +31,7 @@
 					</tr>
 					<tr>
 						<td class="ta_01" align="center" bgColor="#f5fafe">
-							<table cellspacing="0" cellpadding="1" rules="all"
-								bordercolor="gray" border="1" id="DataGrid1"
+							<table cellspacing="0" cellpadding="1" rules="all" bgcolor="gray" border="1" id="DataGrid1"
 								style="BORDER-RIGHT: gray 1px solid; BORDER-TOP: gray 1px solid; BORDER-LEFT: gray 1px solid; WIDTH: 100%; WORD-BREAK: break-all; BORDER-BOTTOM: gray 1px solid; BORDER-COLLAPSE: collapse; BACKGROUND-COLOR: #f5fafe; WORD-WRAP: break-word">
 								<tr
 									style="FONT-WEIGHT: bold; FONT-SIZE: 12pt; HEIGHT: 25px; BACKGROUND-COLOR: #afd1f3">
@@ -50,16 +49,16 @@
 										删除
 									</td>
 								</tr>
-								<c:forEach var="c" items="${ list }">
+								<c:forEach var="c" items="${ requestScope.list }" varStatus="vs">
 										<tr onmouseover="this.style.backgroundColor = 'white'"
 											onmouseout="this.style.backgroundColor = '#F5FAFE';">
 											<td style="CURSOR: hand; HEIGHT: 22px" align="center"
 												width="18%">
-												
+												${vs.count}
 											</td>
 											<td style="CURSOR: hand; HEIGHT: 22px" align="center"
 												width="17%">
-												
+												${c.name}
 											</td>
 											<td align="center" style="HEIGHT: 22px">
 												<a href="${ pageContext.request.contextPath }/adminCategory">

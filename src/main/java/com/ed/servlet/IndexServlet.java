@@ -1,8 +1,6 @@
 package com.ed.servlet;
 
-import com.ed.domain.Kind;
 import com.ed.domain.Product;
-import com.ed.service.KindService;
 import com.ed.service.ProductService;
 
 import javax.servlet.annotation.WebServlet;
