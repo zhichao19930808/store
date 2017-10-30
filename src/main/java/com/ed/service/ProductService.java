@@ -14,4 +14,7 @@ public class ProductService {
         return ProductDao.findProductById(id);
     }
 
+    public static List<Product> findAll() {
+        return ProductDao.findProduct("findAll");
+    }
 }
